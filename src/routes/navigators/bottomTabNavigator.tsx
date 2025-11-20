@@ -4,12 +4,13 @@ import { Skills } from '../../screens/Skills';
 import { Shop } from '../../screens/Shop';
 import SkillIcon from '../../../assets/SkillIcon.png'
 import Entypo from '@expo/vector-icons/Entypo';
+import { JSX } from 'react';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
 export type RootTabParamList = {
     Skills: {};
-    Shop: { id: string };
+    Shop: {};
 };
 
 export function BottomTabNavigator() {
