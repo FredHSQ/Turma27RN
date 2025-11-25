@@ -4,13 +4,14 @@ import { Skills } from '../../screens/Skills';
 import { Shop } from '../../screens/Shop';
 import SkillIcon from '../../../assets/SkillIcon.png'
 import Entypo from '@expo/vector-icons/Entypo';
-import { JSX } from 'react';
+import { Cart } from '../../screens/Cart';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
 export type RootTabParamList = {
     Skills: {};
     Shop: {};
+    Cart: {};
 };
 
 export function BottomTabNavigator() {
@@ -39,6 +40,15 @@ export function BottomTabNavigator() {
         <Tab.Screen 
             name="Shop" 
             component={Shop} 
+            options={{
+                tabBarIcon: ({ color }) => (
+                    <Entypo name="shopping-cart" size={24} color={color} />
+                )
+            }}
+        />
+        <Tab.Screen 
+            name="Cart" 
+            component={Cart} 
             options={{
                 tabBarIcon: ({ color }) => (
                     <Entypo name="shopping-cart" size={24} color={color} />

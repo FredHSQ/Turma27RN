@@ -33,7 +33,8 @@ export const Shop = () => {
       data={magicItemsList}
       renderItem={({ item })=>{
         return <MagicItem
-          name={item.name}
+          isAdding={true}
+          item={item}
         />
       }}
       />

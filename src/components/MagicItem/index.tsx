@@ -1,15 +1,20 @@
 import React from "react";
 import { TouchableOpacity, Text } from "react-native";
 import { styles } from "./styles";
+import { useCartContext } from "../../context/CartContext";
+import { magicItemListProps } from "../../services/ApiDnd/magicItemServices";
 
 interface MagicItemProps {
-    name: string
+    item: magicItemListProps,
+    isAdding?: boolean
 }
 
-export const MagicItem = ({ name }: MagicItemProps) => {
-    return <TouchableOpacity style={styles.buttonMagicItem}>
+export const MagicItem = ({ item, isAdding }: MagicItemProps) => {
+    const { addItemToCart, removeItemFromCart } = useCartContext();
+
+    return <TouchableOpacity onPress={() => isAdding ? addItemToCart(item) : removeItemFromCart(item.index)} style={styles.buttonMagicItem}>
         <Text style={styles.textMagicItem}>
-            { name }
+            { item.name }
         </Text>
     </TouchableOpacity>
 }
